@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d照片表白墙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            touch-action: none;
+        }
+
+        /* perspective指定了观察者与 Z=9 平面的距离，使具有三维位置变换的元素产生透视效果。 */
+        body {
+            overflow: hidden;
+            display: flex;
+            perspective: 1000px;
+            background: #111;
+        }
+
+        @property --d {
+            syntax: '<angle>';
+            inherits: true;
+            initial-value: 0deg;
+        }
+
+        .click_me {
+            width: 200px;
+            aspect-ratio: 1;
+            font-size: 30px;
+            color: #fff;
+            background: none;
+            border: none;
+            border-radius: 20px;
+            position: relative;
+            z-index: 0;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .click_me:before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            padding: 8px;
+            border-radius: 28px;
+            background: conic-gradient(from var(--d, 0deg),
+                    #21D4FD,
+                    #0000 30deg 120deg,
+                    #B721FF 150deg 180deg,
+                    #0000 210deg 300deg,
+                    #21D4FD 330deg);
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: intersect
+        }
+
+        .click_me:after {
+            content: "";
+            position: absolute;
+            inset: -100px;
+            background:
+                radial-gradient(80px at left 150px top 120px, #21D4FD 98%, #0000),
+                radial-gradient(80px at right 150px bottom 120px, #B721FF 98%, #0000);
+            filter: blur(60px);
+            opacity: .5;
+        }
+
+        .click_me:before,
+        .click_me:after {
+            transition: .5s, 99999s 99999s transform, 99999s 99999s --d;
+        }
+
+        .click_me:hover {
+            box-shadow: 0 0 0 1px #666;
+        }
+
+
+        .click_me:hover:after {
+            transform: rotate(3600deg);
+            transition: .5s, 60s linear transform;
+        }
+
+        .click_me:hover:before {
+            --d: 3600deg;
+            transition: .5s, 60s linear --d;
+        }
+
+        .click_me:hover:before {
+            background-color: #222;
+        }
+
+        .click_me_shell {
+            margin: 0;
+            /* min-height: 100vh; */
+            display: grid;
+            place-content: center;
+            grid-auto-flow: column;
+            background-color: #1b1b1c;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #dragBox,
+        .spinBox {
+            position: relative;
+            display: flex;
+            margin: auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg);
+        }
+
+        #dragBox {
+            transform: rotateX(-30deg)
+        }
+
+        .spinBox {
+            width: 120px;
+            height: 140px;
+            animation: spin 200s infinite linear;
+        }
+
+        #spinBox2 {
+            position: absolute;
+            top: 120%;
+        }
+
+        #spinBox3 {
+            position: absolute;
+            top: -120%;
+        }
+
+        #dragBox img {
+            transform-style: preserve-3d;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 8px #fff;
+            /*倒影 */
+            -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+        }
+
+        #dragBox img:hover {
+            box-shadow: 0 0 15px #fff;
+        }
+
+        /*自动旋转 */
+        @keyframes spin {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="click_me_shell" id="click_me_shell">
+        <audio loop src="media/落在生命里的光-尹昔眠.m4a" id="audio" autoplay preload="auto"></audio>
+        <button class="click_me">Click Me</button>
+    </div>
+    <div id="dragBox">
+        <div class="spinBox" id="spinBox">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+        </div>
+        <div class="spinBox" id="spinBox2">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+        </div>
+        <div class="spinBox" id="spinBox3">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+            <img src="img/3.webp">
+            <img src="img/4.webp">
+            <img src="img/6.webp">
+            <img src="img/7.webp">
+            <img src="img/8.webp">
+            <img src="img/1.webp">
+            <img src="img/2.webp">
+        </div>
+    </div>
+    <script>
+        let radius = 560;
+        //相册展开大小
+        let outDom = document.getElementById("dragBox");
+        outDom.style.display = 'none';
+
+        let spinDom = document.getElementById("spinBox");
+        let spinDom2 = document.getElementById("spinBox2");
+        let spinDom3 = document.getElementById("spinBox3");
+
+        let aImg = spinDom.getElementsByTagName('img');
+        let aImg2 = spinDom2.getElementsByTagName('img');
+        let aImg3 = spinDom3.getElementsByTagName('img');
+
+        let aEle = [...aImg];
+        let aEle2 = [...aImg2];
+        let aEle3 = [...aImg3];
+
+        function setStyle(delayTime, dom, i, len) {
+            //给元素加动画 展开
+            dom.style.transform = "rotateY(" + (i * (360 / len)) + "deg) translateZ(" + radius + "px)";
+            dom.style.transition = "transform 1s";
+            dom.style.transitionDelay = delayTime || (len - i) / 4 + "s";
+        }
+
+        function init(delayTime) {
+            for (let i = 0; i < aEle.length; i++) {
+                setStyle(delayTime, aEle[i], i, aEle.length)
+            }
+            for (let i = 0; i < aEle2.length; i++) {
+                setStyle(delayTime, aEle2[i], i, aEle2.length)
+            }
+            for (let i = 0; i < aEle3.length; i++) {
+                setStyle(delayTime, aEle3[i], i, aEle3.length)
+            }
+        }
+
+        let click_me_shell = document.getElementById("click_me_shell")
+        click_me_shell.onclick = () => {
+            /* console.log('点击了') */
+            outDom.style.display = '';
+            click_me_shell.style.display = 'none';
+            let audio = document.getElementById('audio');
+            audio.play();
+            ! function (e, t, a) {
+                function r() {
+                    for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e,
+                        1)) : (s[
+                            e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[
+                            e].x +
+                        "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale +
+                        "," + s[e]
+                        .scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+                    requestAnimationFrame(r)
+                }
+
+                function n() {
+                    var t = "function" == typeof e.onclick && e.onclick;
+                    e.onclick = function (e) {
+                        t && t(), o(e)
+                    }
+                }
+
+                function o(e) {
+                    var a = t.createElement("div");
+                    a.className = "heart", s.push({
+                        el: a,
+                        x: e.clientX - 5,
+                        y: e.clientY - 5,
+                        scale: 1,
+                        alpha: 1,
+                        color: c()
+                    }), t.body.appendChild(a)
+                }
+
+                function i(e) {
+                    var a = t.createElement("style");
+                    a.type = "text/css";
+                    try {
+                        a.appendChild(t.createTextNode(e))
+                    } catch (t) {
+                        a.styleSheet.cssText = e
+                    }
+                    t.getElementsByTagName("head")[0].appendChild(a)
+                }
+
+                function c() {
+                    return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math
+                        .random()) + ")"
+                }
+                var s = [];
+                e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e
+                    .mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (
+                        e) {
+                        setTimeout(e, 1e3 / 60)
+                    }, i(
+                        ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
+                    ), n(), r()
+            }(window, document);
+            setTimeout(init, 1000);
+        }
+
+
+        //鼠标滚动事件
+        document.onmousewheel = function (e) {
+            e || e.window.event;
+            let d = e.wheelDelta / 20 || -e.detail;
+            radius += d;
+            //展开大小
+            init(1);
+        }
+        //暂停开始旋转
+        function playSpin(yes) {
+            spinDom.style.animationPlayState = (yes ? 'running' : 'paused');
+        }
+
+        function changeRotate(obj) {
+            // X轴旋转0-180度
+            if (tY > 180)
+                tY = 180;
+            if (tY < 0)
+                tY = 0;
+            // y轴旋转角度不限制
+            obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
+        }
+        let startX, startY, endX, endY, tX = 0,
+            tY = 10,
+            desX = 0,
+            desY = 0;
+
+        //鼠标移动事件
+        document.onpointerdown = function (e) {
+            //清除惯性定时器
+            clearInterval(outDom.timer);
+            e = e || ewindow.event;
+            //鼠标点击位置
+            startX = e.clientX, startY = e.clientY;
+            this.onpointermove = function (e) {
+                playSpin(false);
+                //鼠标点击时 停止自动旋转//鼠标点击时 停止自动旋转
+                e = e || window.event;
+                //记录结束时位置
+                endX = e.clientX,
+                    endY = e.clientY;
+                //计算移动距离 并修改角度
+                desX = endX - startX;
+                desY = endY - startY;
+                tX += desX * 0.1;
+                tY += desY * 0.1;
+                changeRotate(outDom);
+                startX = endX;
+                startY = endY;
+            }
+            //鼠标离开时 开始自动旋转
+            this.onpointerup = function (e) {
+                //惯性旋转
+                outDom.timer = setInterval(function () {
+                    desX *= 0.95;
+                    desY *= 0.95;
+                    tX += desX * 0.1;
+                    tY += desY * 0.1;
+                    changeRotate(outDom);
+                    playSpin(false);
+                    if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+                        clearInterval(outDom.timer);
+                        playSpin(true);
+                    }
+                })
+                this.onpointermove = this.onpointerup = null;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

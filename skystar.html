@@ -1,0 +1,64 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2023-08-31 21:55:04
+ * @LastEditors: henggao
+ * @LastEditTime: 2023-09-04 09:46:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💗今晚，整片星空将为你一人闪烁💗</title>
+    <style>
+      #videofilm {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        z-index: -1;
+      }
+      h1{
+        font-size: 26px;
+        color: #B1BCE6;
+        font-family: '楷体';
+      }
+
+    </style>
+
+    <link rel="stylesheet" href="css/skystar.css">
+	<script>
+    var shouci = true;
+    console.log(shouci);
+
+    function bodyPlayMusic() {
+      if (shouci) {
+        shouci = false;
+        audio.play();
+        console.log(shouci);
+      }
+    };
+  </script>
+  </head>
+  <body onclick="bodyPlayMusic()">
+    <video id="videofilm" poster="img/skystar2.jpg" autoplay muted loop>
+      <source src="video/skystar.mp4" type="video/mp4">
+    </video>
+    <div class="textone">
+      <h1>💞niu niu💞</h1>
+    </div>
+    <div class="texttwo">
+      <h1>All stars shine for U</h1>
+    </div>
+    <div class="textthree">
+      <h1></h1>
+    </div>
+	<!-- music -->
+    <audio id="audio" src="media/晴天.mp3" preload="auto" loop="loop"></audio>  
+    <div class="container"></div>
+    <script src="js/skystar.js"></script>
+    
+    
+  </body>
+</html>

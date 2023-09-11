@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>💗 Love💞you 💗</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('css/digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<script>
+		var shouci = true;
+		console.log(shouci);
+
+		function bodyPlayMusic() {
+			if (shouci) {
+				shouci = false;
+				audio.play();
+				console.log(shouci);
+			}
+		};
+	</script>
+</head>
+
+<body onclick="bodyPlayMusic()">
+	<audio id="audio" src="media/InTheShadowOfTheSun.mp3" preload="auto" loop="loop"></audio>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">💗 Love💞you 💗</span><br />
+				i = Boy(<span class="string">"Henggao Geng"</span>);<br />
+				u = Girl(<span class="string">"Min Zhao"</span>);<br />
+				<span class="comments"># Jan. 26, 2023</span><br />
+				i.meet(u)<br />
+				<span class="comments">##</span><br />
+				<span class="comments">亲爱的妞妞</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">我们认识已经二百余天</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">从第一次和你聊天</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">就感觉你是一个充满欢乐的女孩</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">早晨的加油，元气满满每一天</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">相互的问候，倍感欢喜</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">和你分享生活点滴，开心翻倍</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">感谢有你相伴的每一天</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">往后余生，请多多指教</span><br />
+				<span class="comments">##</span><br />
+				<span class="comments">💗 Love💞you 💗</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Min, From the first chat, it has been
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br />
+						<div class="signature">- Henggao Geng | ZaiZai</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Copyright © 2023 <a href='http://zhaomin.genghenggao.top'>genghenggao.top</a> 2019-2023
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+		together.setFullYear(2023, 0, 26);
+		together.setHours(15);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+			document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 500);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+#music_ico {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    float: right;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.music_run {
+    animation: myrun 5s linear infinite;
+    -webkit-animation: myrun 5s linear infinite;
+    /*Safari and Chrome*/
+}
+
+@keyframes myrun {
+    from {
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        /* Internet Explorer */
+        -moz-transform: rotate(0deg);
+        /* Firefox */
+        -webkit-transform: rotate(0deg);
+        /* Safari 和 Chrome */
+        -o-transform: rotate(0deg);
+        /* Opera */
+    }
+    to {
+        transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        /* Internet Explorer */
+        -moz-transform: rotate(360deg);
+        /* Firefox */
+        -webkit-transform: rotate(360deg);
+        /* Safari 和 Chrome */
+        -o-transform: rotate(360deg);
+        /* Opera */
+    }
+}
+
+@-webkit-keyframes myrun
+/*Safari and Chrome*/
+
+    {
+    from {
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        /* Internet Explorer */
+        -moz-transform: rotate(0deg);
+        /* Firefox */
+        -webkit-transform: rotate(0deg);
+        /* Safari 和 Chrome */
+        -o-transform: rotate(0deg);
+        /* Opera */
+    }
+    to {
+        transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        /* Internet Explorer */
+        -moz-transform: rotate(360deg);
+        /* Firefox */
+        -webkit-transform: rotate(360deg);
+        /* Safari 和 Chrome */
+        -o-transform: rotate(360deg);
+        /* Opera */
+    }
+}

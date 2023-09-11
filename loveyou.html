@@ -1,0 +1,66 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2023-09-07 10:24:44
+ * @LastEditors: henggao
+ * @LastEditTime: 2023-09-11 08:28:29
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta />
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <link type="text/css" rel="stylesheet" href="css/earthstyle.css" />
+  <link type="text/css" rel="stylesheet" href="css/earthstyle1.css" />
+  <link type="text/css" rel="stylesheet" href="css/animate.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/audioAutoPlay.css" />
+  <script src="js/jquery.min.js"></script>
+  <script src="js/three.js"></script>
+  <script src="js/tween.min.js"></script>
+  <script src="js/trackballcontrols.js"></script>
+  <script src="js/css3drenderer.js"></script>
+  <title>💗 Love💞you 💗</title>
+</head>
+
+<body>
+  <!-- 背景S -->
+  <!-- <audio controls autoplay>
+    <source src="media/520.mp3">
+  </audio> -->
+  <div style="position:fixed;width: 100%;height:100%;top:0; z-index:-1;">
+    <div id="background" class="wall"></div>
+    <div id="midground" class="wall"></div>
+    <div id="foreground" class="wall"></div>
+    <div id="top" class="wall"></div>
+  </div>
+  <!-- 背景E -->
+  <!-- 音乐 -->
+  <img id="music_ico" onclick="clickMusic()" src="img/music_ico.png" alt="" />
+  <audio id="audio" style="display: none" src="media/bg_music.mp3" preload="auto" loop="loop"></audio>
+  <div id="container"></div>
+  <!-- 操作按钮-默认已经隐藏- 需要打开可以 查找#menu 类名 删掉  opacity: 0;即可-->
+  <div id="menu">
+    <button id="table">照片墙</button>
+    <button id="sphere">照片球</button>
+    <button id="helix">螺旋照片</button>
+    <button id="grid">整齐排列</button>
+  </div>
+  <!-- 卡片 -->
+  <div class="show_info animated" style="display: none">
+    <div class="info_my">
+      <img id="showImg" style="width: 65px; height: 65px" src="img/1.jpg" />
+      <div class="info_mem">
+        <div class="nickname"></div>
+        <div class="id"> 🌹你是我的欢喜，喜欢的公主 🌹</div>
+        <div class="vote"> 🌹愿你和我满心欢喜，如期而至🌹</div>
+      </div>
+    </div>
+    <div class="intro">“无论多大，我们都要热爱生活、保持活泼和充满能量，做一对快乐的元气组合" 🌹🌹🌹</div>
+  </div>
+</body>
+<script type="text/javascript" src="js/earthfunctions.js"></script>
+<script type="text/javascript" src="js/audioAutoPlay.js"></script>
+
+</html>
