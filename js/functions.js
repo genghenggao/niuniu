@@ -105,6 +105,8 @@ function timeElapse(c) {
 	}
 	var a = '<span class="digit">' + g + '</span> days <span class="digit">' + b + '</span> hours <span class="digit">' + d + '</span> minutes <span class="digit">' + f + "</span> seconds";
 	$("#elapseClock").html(a)
+	var aa = '我们认识已有<span>' + g + '</span> 天';
+	$("#elapseClock1").html(aa)
 }
 
 function showMessages() {

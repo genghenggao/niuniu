@@ -29,6 +29,9 @@ body {
     margin-top: 10px;
     margin-bottom: 10px
 }
+#elapseClock1 {
+    text-align: left;
+}
 
 #words {
     font-family: "sans-serif";
