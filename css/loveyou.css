@@ -1,0 +1,213 @@
+/* .container {
+    height: 700px;
+    width: 100%;
+    position: relative;
+    background-image:url('tim2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title {
+    position: fixed;
+    left: 50%;
+    text-align: center;
+    font-size: 27px;
+    color: red;
+    line-height: 23px;
+}
+
+.btn {
+    display: flex;
+    height: 500px;
+    position: fixed;
+    left: 60%;
+    top: 50%;
+  
+}
+.btn1, .btn2 {
+font-size: 20px;
+height: 50px;
+border-radius: 25px;
+background-color: rgba(246, 96, 159, 0.774);
+color: white;
+padding: 10px;
+margin-right: 25px;
+
+}
+.btn1:hover{
+align-self: center;
+}
+.btn2{
+    cursor: pointer;
+    
+}
+.transform{
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.btn2:hover {
+    background-color: rgba(255, 0, 106, 0.774);
+}
+
+    .loveyou{
+        background-image: url('https://i.pinimg.com/originals/2a/d9/f3/2ad9f3d27327a38eb2f213e8e618f707.jpg');
+        position: absolute;
+        left: 0;
+        height: 700px;
+        width: 400px;
+        transform: rotate(360deg);
+    }
+   
+
+
+.item{
+    font-family: 'Lobster', cursive;
+    transition: transform 0.5s;
+    font-size: 50px;
+    color: #ff00b1;
+    position: absolute;
+    left: -365px;
+    top: -277px;
+    transform: translateX(-1000%);
+}
+.transform.item.love-active {
+    transform: translateY(0);
+}
+/* .transform.love-active > *:first-child {
+    transform: translateY(0);
+} */
+    /* .item1 {
+        transform: translate(-1800%);
+    }
+    .item2 {
+        transform: translate(-1600%);
+    }
+    .item3 {
+        transform: translate(-1400%);
+    }
+    .item4 {
+        transform: translate(-1200%);
+    } */
+
+    /* .transform.love-active >* .item1 {
+        transform: translate(-1800%);
+    }
+    .item2.love-active {
+        transform: translate(-1600%);
+    }
+    .item3.love-active {
+        transform: translate(-1400%);
+    }
+    .item4.love-active {
+        transform: translate(-1200%);
+    } */
+
+
+* {
+    padding :0;
+  margin: 0;
+}
+html, body {
+  height: 100vh;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.container {
+  background: url('https://hinhanhdephd.com/wp-content/uploads/2016/01/Hinh-nen-tinh-yeu-lang-man-hinh-trai-tim-dep-14.jpg');
+  background-size: cover;
+  height: 100%;
+  padding: 20px;
+  
+}
+
+.title {
+  color: red;
+  margin: 0 0 15px;
+}
+
+.btn-wrap {
+  margin: 0 0 50px;
+}
+
+.btn-wrap button {
+  border: 1px solid red;
+  padding: 10px 20px;
+  background: red;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s; 
+  
+} 
+
+.transform-wrap {
+  position: relative;
+  background: url('');
+  width: 500px;
+  /* margin: 0 auto; */
+  margin: 0 auto;
+  height: 60vh;
+  font-size: 20px;
+  color: #ff0037;
+  overflow: hidden;
+}
+
+.transform-wrap img {
+  width: 100%;
+}
+
+.item-list {
+  position: absolute;
+  top: 70px;
+  left: 60px;
+  width: 100%;
+  height: 100%;
+  baansparent: transparent ;
+  z-index: 10;
+  overflow: hidden
+}
+
+.item-list .item {
+  transition: 0.5s; 
+  transform: translateX(-100%);
+}
+
+.item-list .item.item1 {
+  transition: 0.8s; 
+}
+
+.item-list .item.item2 {
+  transition: 0.9s; 
+}
+
+.item-list .item.item3 {
+  transition: 0.13s; 
+}
+
+.item-list .item.item4 {
+  transition: 0.15s; 
+}
+
+.item-active .item {
+  transform: translateX(0%);
+}
+
+/*  xử cái hình */
+.transform-wrap img {
+  transform: translate(-100%,0);
+    transition: all 1s ease-in-out;
+}
+
+.transform-wrap img.active {
+  animation-name: xoay;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  transform: translate(0%,0) ;
+}
+
+@keyframes xoay {
+  0% {transform: rotate(-60deg);}
+  100%  { 
+    transform: rotate(180deg);
+  }
+}
