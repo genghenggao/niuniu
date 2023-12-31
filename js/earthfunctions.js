@@ -45,7 +45,7 @@ var s = setInterval(function() {
 //  生成虚拟数据-修改后新生成虚拟数据- 自动查找image 中的图片 遍历添加进去 
 for (var i = 0; i < 199; i++) {
     personArray.push({
-        image: './img/' + Math.round(Math.random() * 12) + '.jpg'
+        image: './img/' + Math.round(Math.random() * 15) + '.jpg'
     });
 }
 
