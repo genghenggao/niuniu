@@ -1,0 +1,49 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2023-12-31 10:02:36
+ * @LastEditors: henggao
+ * @LastEditTime: 2023-12-31 10:17:08
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>💗 Love💞you 💗</title>
+  <link rel="Shortcut Icon" href="ico/favicon.ico" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/90/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.90.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+	<script>
+		var shouci = true;
+		console.log(shouci);
+
+		function bodyPlayMusic() {
+			if (shouci) {
+				shouci = false;
+				audio.play();
+				console.log(shouci);
+			}
+		};
+	</script>
+</head>
+
+<body id="body" onclick="bodyPlayMusic()">
+	<audio id="audio" src="media/bg_music.mp3" preload="auto" loop="loop"></audio>
+  <div id="WebGL-output"></div>
+
+  <script src="./js/IloveU.js"></script>
+
+</body>
+
+</html>
