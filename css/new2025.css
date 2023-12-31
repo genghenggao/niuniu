@@ -1,0 +1,16 @@
+html, body {
+			padding: 0px;
+			margin: 0px;
+			background-color: #000000;
+			overflow: hidden;
+		}
+
+		#logo {
+			position: absolute;
+		  right:0px;
+		  bottom:0px;
+		}
+		canvas {
+		  position: absolute;
+		  -webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
