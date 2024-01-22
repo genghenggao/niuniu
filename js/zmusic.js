@@ -43,7 +43,7 @@ new Vue({
         {
           name: "只想对你说",
           artist: "掌嘴/Lil-7",
-          cover: "./img/6.jpg",
+          cover: "./img/4.jpg",
           source: "./media/只想对你说.mp3",
           url: "",
           favorited: false
@@ -51,7 +51,7 @@ new Vue({
         {
           name: "亲爱的你",
           artist: "小海",
-          cover: "./img/14.jpg",
+          cover: "./img/5.jpg",
           source: "./media/亲爱的你.mp3",
           url: "",
           favorited: true
@@ -59,7 +59,7 @@ new Vue({
         {
           name: "可能否",
           artist: "木小雅",
-          cover: "./img/5.jpg",
+          cover: "./img/6.jpg",
           source: "./media/可能否.mp3",
           url: "",
           favorited: false
@@ -67,7 +67,7 @@ new Vue({
         {
           name: "往后余生",
           artist: "马良",
-          cover: "./img/15.jpg",
+          cover: "./img/7.jpg",
           source: "./media/往后余生.mp3",
           url: "",
           favorited: true
@@ -75,7 +75,7 @@ new Vue({
         {
           name: "我的天空",
           artist: "南征北战",
-          cover: "./img/0.jpg",
+          cover: "./img/8.jpg",
           source: "./media/我的天空.mp3",
           url: "",
           favorited: false
@@ -83,7 +83,7 @@ new Vue({
         {
           name: "All I have",
           artist: "光光",
-          cover: "./img/2.jpg",
+          cover: "./img/9.jpg",
           source: "./media/All I have.mp3",
           url: "",
           favorited: false
@@ -91,7 +91,7 @@ new Vue({
         {
           name: "全部都是你",
           artist: "DP 龙猪",
-          cover: "./img/3.jpg",
+          cover: "./img/12.jpg",
           source: "./media/全部都是你.mp3",
           url: "",
           favorited: false
