@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+  background: #f9c8cf;
+}
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url('../img/ValentineDay.webp');
+  /* background: url(https://www.loonapix.com/img/frame/work/max/1486329476.jpg); */
+  background-size: calc(100% + 4px) calc(100% + 4px);
+  background-repeat: no-repeat;
+  background-position: -2px -2px;
+}
+main {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  --heart-size: 100px;
+}
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  width: 600px;
+  height: 400px;
+}
+.heart-wrap {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 50% 0 0 33%;
+  --heart-wrap-w: calc(2 * var(--heart-size));
+  --heart-wrap-h: calc(1.6 * var(--heart-size));
+  width: var(--heart-wrap-w);
+  height: var(--heart-wrap-h);
+}
+.heart {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(var(--heart-size));
+  height: calc(var(--heart-size));
+  transform: rotate(-45deg);
+  transform-origin: left bottom;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.heart::before {
+  top: -50%;
+}
+.heart::after {
+  left: 50%;
+}
+.heart,
+.heart::before,
+.heart::after {
+  background: #ff3445;
+}
+.overlap {
+  position: relative;
+}
+.overlap .layer {
+  position: absolute;
+}
+.pulse {
+  animation: 1s linear infinite pulse;
+}
+.pulse-bomb {
+  animation: 4s linear infinite pulse-bomb;
+}
+@keyframes pulse {
+  0%,
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  70%,
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulse-bomb {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    opacity: 0.5;
+    transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(50);
+  }
+}
+.flake.heart {
+  width: 1em;
+  height: 1em;
+}
+/* customizable snowflake styling */
+.flake {
+  position: fixed;
+  top: -10%;
+  user-select: none;
+  animation-name: flakes-fall, flakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  color: #f00;
+  fill: #f00;
+  font-size: 1.1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+}
+.flake:nth-of-type(1) {
+  left: 5%;
+  animation-delay: 1s, 1s;
+}
+.flake:nth-of-type(2) {
+  left: 10%;
+  animation-delay: 6s, 0.5s;
+}
+.flake:nth-of-type(3) {
+  left: 20%;
+  animation-delay: 4s, 2s;
+}
+.flake:nth-of-type(4) {
+  left: 30%;
+  animation-delay: 2s, 2s;
+}
+.flake:nth-of-type(5) {
+  left: 35%;
+  animation-delay: 3s, 3s;
+}
+.flake:nth-of-type(6) {
+  left: 65%;
+  animation-delay: 2s, 2s;
+}
+.flake:nth-of-type(7) {
+  left: 70%;
+  animation-delay: 2.5s, 1s;
+}
+.flake:nth-of-type(8) {
+  left: 80%;
+  animation-delay: 1s, 0s;
+}
+.flake:nth-of-type(9) {
+  left: 90%;
+  animation-delay: 3s, 1.5s;
+}
+.flake:nth-of-type(10) {
+  left: 95%;
+  animation-delay: 2s, 1s;
+}
+@keyframes flakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes flakes-shake {
+  0% {
+    transform: translateX(0px) rotate(-45deg);
+  }
+  50% {
+    transform: translateX(80px) rotate(-45deg);
+  }
+  100% {
+    transform: translateX(0px) rotate(-45deg);
+  }
+}

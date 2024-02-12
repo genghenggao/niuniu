@@ -1,0 +1,64 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2024-02-12 12:48:11
+ * @LastEditors: henggao
+ * @LastEditTime: 2024-02-12 13:03:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="Shortcut Icon" href="ico/favicon.ico" type="image/x-icon" />
+  <title>💗 Love💞you 💗</title>
+  <link rel="stylesheet" href="./css/ValentineDay.css">
+  <script>
+    var shouci = true;
+    console.log(shouci);
+
+    function bodyPlayMusic() {
+      if (shouci) {
+        shouci = false;
+        audio.play();
+        console.log(shouci);
+      }
+    };
+  </script>
+
+</head>
+
+<body onclick="bodyPlayMusic()">
+  <!-- partial:index.partial.html -->
+  <!-- 音乐 -->
+  <audio id="audio" src="media/InTheShadowOfTheSun.mp3" preload="auto" loop="loop"></audio>
+  <main>
+    <div class="heartflakes" aria-hidden="true">
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+      <div class="flake heart"></div>
+    </div>
+    <div class="container">
+      <div class="bg-img"></div>
+      <div class="overlap">
+        <div class="layer heart-wrap pulse-bomb">
+          <div class="heart"></div>
+        </div>
+        <div class="heart-wrap pulse">
+          <div class="heart"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- partial -->
+
+</body>
+
+</html>
