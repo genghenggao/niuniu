@@ -25,7 +25,7 @@ var s = setInterval(function() {
                 $('.show_info').hide();
                 // 更改展示的图片 ----- ----- 勿删-----
                 // img.setAttribute('src', './static/picture/ava' + Math.round(Math.random() * 22) + '.jpg');
-                img.setAttribute('src', './img/' +Math.round(Math.random() * 12) + '.jpg');
+                img.setAttribute('src', './img/' +Math.round(Math.random() * 20) + '.jpg');
              
 
             }, 1000);
@@ -44,7 +44,7 @@ var s = setInterval(function() {
 //  生成虚拟数据-修改后新生成虚拟数据- 自动查找image 中的图片 遍历添加进去 
 for (var i = 0; i < 199; i++) {
     personArray.push({
-        image: './img/' + Math.round(Math.random() * 15) + '.jpg'
+        image: './img/' + Math.round(Math.random() * 20) + '.jpg'
     });
 }
 
