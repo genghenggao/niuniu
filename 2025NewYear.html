@@ -1,97 +1,102 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2024-12-31 09:05:26
+ * @LastEditors: henggao
+ * @LastEditTime: 2024-12-31 10:13:22
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Particle Glowing Sakura Tree</title>
+    <title>Canvas Drawing</title>
     <style>
-        body { margin: 0; }
-        canvas { display: block; }
+        body {
+            background-color: cyan;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            background-color: cyan;
+        }
     </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <canvas id="canvas" width="800" height="800"></canvas>
     <script>
-        // 1. 初始化场景、摄像机和渲染器
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
 
-        // 2. 创建树的主干部分（简单的圆柱体）
-        const trunkGeometry = new THREE.CylinderGeometry(0.1, 0.2, 3, 8);
-        const trunkMaterial = new THREE.MeshPhongMaterial({ color: 0x8b4513 });
-        const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
-        trunk.position.y = 1.5; // 将树干移动到适当位置
-        scene.add(trunk);
+        function drawPolygon(points, fill = false, strokeColor = 'black', fillColor = null, lineWidth = 1) {
+            ctx.beginPath();
+            ctx.moveTo(points[0][0] + 400, -points[0][1] + 400);
 
-        // 3. 创建树枝（我们将几个圆柱体放置在不同角度模拟树枝）
-        const branchGeometry = new THREE.CylinderGeometry(0.05, 0.1, 2, 8);
-        const branchMaterial = new THREE.MeshPhongMaterial({ color: 0x8b4513 });
-        
-        const branches = [];
-        for (let i = 0; i < 5; i++) {
-            const branch = new THREE.Mesh(branchGeometry, branchMaterial);
-            branch.rotation.z = Math.random() * Math.PI * 2;
-            branch.position.set(Math.random() * 1.5 - 0.75, Math.random() * 1.5 + 1, Math.random() * 1.5 - 0.75);
-            branches.push(branch);
-            scene.add(branch);
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i][0] + 400, -points[i][1] + 400);
+            }
+
+            ctx.closePath();
+
+            if (fill && fillColor) {
+                ctx.fillStyle = fillColor;
+                ctx.fill();
+            }
+
+            if (strokeColor) {
+                ctx.strokeStyle = strokeColor;
+                ctx.lineWidth = lineWidth;
+                ctx.stroke();
+            }
         }
 
-        // 4. 添加樱花花瓣的粒子效果
-        const particleCount = 500;
-        const particles = new THREE.Geometry();
-        const particleMaterial = new THREE.PointsMaterial({
-            color: 0xffc0cb, 
-            size: 0.1,
-            emissive: new THREE.Color(0xffc0cb), // 粒子发光
-            transparent: true,
-            opacity: 0.8,
-        });
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = new THREE.Vector3(
-                Math.random() * 2 - 1,
-                Math.random() * 3 + 1,
-                Math.random() * 2 - 1
-            );
-            particles.vertices.push(particle);
+        function drawText(text, x, y, font = '30px Arial', color = 'black') {
+            ctx.fillStyle = color;
+            ctx.font = font;
+            ctx.fillText(text, x + 400, -y + 400);
         }
 
-        const particleSystem = new THREE.Points(particles, particleMaterial);
-        scene.add(particleSystem);
+        // 绘制轮廓
+        const pointsOutline  = [
+        [-294, 213], [-294, 206], [-292, 200], [-289, 194], [-285, 189],
+        [-282, 186], [-279, 183], [-277, 181], [-273, 180], [-269, 180],
+        [-266, 180], [-262, 182], [-258, 184], [-254, 188], [-250, 192],
+        [-246, 196], [-243, 199], [-240, 204], [-235, 212], [-231, 219],
+        [-229, 226], [-226, 232], [-225, 241], [-225, 252], [-225, 262],
+        [-226, 273], [-226, 283], [-226, 291], [-228, 293], [-228, 284],
+        [-229, 271], [-230, 252], [-232, 242], [-234, 234], [-237, 226],
+        [-241, 219], [-248, 212], [-256, 206], [-263, 202], [-271, 198],
+        [-276, 196], [-286, 197], [-289, 202], [-291, 206]
+        ];
 
-        // 5. 添加光源，使花瓣粒子发光
-        const light = new THREE.PointLight(0xffc0cb, 1, 100);
-        light.position.set(1, 3, 1);
-        scene.add(light);
+        drawPolygon(pointsOutline , true, 'rgb(72, 74, 54)', 'rgb(120, 120, 120)', 2);
 
-        // 6. 设置相机位置
-        camera.position.z = 5;
+        // 左耳
+        var pointsLeftEar = [
+        [211, 272], [199, 266], [189, 259], [177, 250], [166, 241],
+        [159, 232], [150, 223], [144, 215], [140, 208], [136, 203],
+        [147, 203], [157, 204], [164, 204], [167, 203], [169, 199],
+        [167, 196], [164, 192], [161, 189], [159, 186], [159, 184],
+        [158, 180], [158, 178], [163, 178], [173, 178], [182, 178],
+        [189, 178], [193, 176], [195, 174], [195, 170], [193, 167],
+        [191, 163], [188, 159], [186, 156], [186, 154], [191, 154],
+        [196, 154], [200, 153], [202, 151], [201, 147], [199, 145],
+        [198, 143], [197, 141], [199, 140], [202, 141], [208, 143],
+        [215, 145], [219, 146], [222, 146], [223, 145], [222, 140],
+        [220, 135], [219, 131], [217, 128], [216, 124], [217, 122],
+        [219, 123], [222, 128], [226, 135], [230, 143], [233, 152],
+        [238, 162], [240, 170], [243, 177], [243, 181], [235, 190],
+        [229, 197], [226, 205], [222, 213], [217, 224], [214, 234],
+        [212, 245], [212, 255], [212, 264]
+        ];
+        drawPolygon(pointsLeftEar, true, 'rgb(46, 46, 46)', 'rgb(171, 171, 171)');
 
-        // 7. 渲染循环
-        function animate() {
-            requestAnimationFrame(animate);
-
-            // 旋转树枝和粒子系统
-            trunk.rotation.y += 0.01;
-            branches.forEach(branch => {
-                branch.rotation.y += 0.02;
-            });
-            particleSystem.rotation.x += 0.002;
-            particleSystem.rotation.y += 0.002;
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // 8. 调整窗口大小
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
+        // 绘制文字
+        drawText('Hi!', -455, 0, '50px Curlz MT', 'black');
+        drawText('妞妞', -455, -100, '50px Curlz MT', 'black');
     </script>
 </body>
 </html>
