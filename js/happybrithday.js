@@ -5,7 +5,6 @@ function init() {
     // 初始化样式
     textone.style.color = '#E8F9FD';
     textone.style.fontFamily = '楷体';
-    textone.style.top = '90px';
     textone.style.fontSize = '50px';
 
     let texts = [
