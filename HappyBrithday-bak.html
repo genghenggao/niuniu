@@ -1,0 +1,98 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2025-01-14 19:41:58
+ * @LastEditors: henggao
+ * @LastEditTime: 2025-01-14 22:53:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="Shortcut Icon" href="ico/favicon.ico" type="image/x-icon" />
+    <title>💗老婆，生日快乐💗</title>
+    <style>
+        #videofilm {
+            width: 100%;
+            height: auto;
+            position: fixed;
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #B1BCE6;
+            font-family: '楷体';
+            display: flex; /* 使用 flex 布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 100vh; /* 让 h1 占满整个视口高度 */
+            margin: 0;
+        }
+
+        img {
+            width: 40%; /* 设置图片宽度为40% */
+            height: auto; /* 保持比例 */
+        }
+    </style>
+
+    <link rel="stylesheet" href="css/skystar.css">
+    <script>
+        var shouci = true;
+
+        function bodyPlayMusic() {
+            if (shouci) {
+                shouci = false;
+                audio.play();
+            }
+        }
+
+        // 切换视频源的函数
+        function changeVideoSource() {
+            var video = document.getElementById('videofilm');
+            var newSource = document.createElement('source');
+            newSource.src = "video/birth.mp4"; // 新的视频文件
+            newSource.type = "video/mp4";
+
+            // 清除现有的 source 并添加新的 source
+            video.innerHTML = '';
+            video.appendChild(newSource);
+
+            // 重新加载视频
+            video.load();
+            video.play();
+
+            // 切换 <h1> 内容为图片
+            var h1Element = document.querySelector('h1');
+            h1Element.innerHTML = ''; // 清空原有文字内容
+            var img = document.createElement('img');
+            img.src = 'img/2222.png'; // 替换为目标图片路径
+            h1Element.appendChild(img);
+        }
+
+        // 在页面加载后8秒切换视频源
+        setTimeout(changeVideoSource, 8000);
+    </script>
+</head>
+
+<body onclick="bodyPlayMusic()">
+    <video id="videofilm" poster="img/red-hearts.jpg" autoplay muted loop>
+        <source src="video/appear.mp4" type="video/mp4">
+    </video>
+    <div>
+        <h1>💗老婆，生日快乐💗</h1>
+    </div>
+    <div class="texttwo">
+    </div>
+    <div class="textthree">
+    </div>
+    <!-- music -->
+    <audio id="audio" src="media/晴天.mp3" preload="auto" loop="loop"></audio>
+    <div class="container"></div>
+    <script src="js/skystar.js"></script>
+</body>
+
+</html>
