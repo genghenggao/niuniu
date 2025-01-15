@@ -1089,8 +1089,18 @@
             }
         }
     </style>
+    <script>
+            var shouci = true;
+    
+            function bodyPlayMusic() {
+                if (shouci) {
+                    shouci = false;
+                    audio.play();
+                }
+            }
+    </script>
 </head>
-<body>
+<body onclick="bodyPlayMusic()">
 <bokeh></bokeh>
 <bokeh></bokeh>
 <bokeh></bokeh>
@@ -1142,9 +1152,7 @@
     <div class="after"></div>
 </div>
 <h3>老婆 生日快乐 💗</h3>
-<audio autoplay="autoplay" loop="loop" id="audios" preload="auto" hidden>
-    <source src="media/只想对你说.mp3"/ type="audio/mp3"> 
-</audio>
+<audio id="audio" src="media/happybrithday.mp3" preload="auto" loop="loop"></audio>
 <span>🎉</span>
 <div class="candle">
     <div id="flame" class="lit"></div>
